@@ -1,5 +1,30 @@
+/**
+ * Uses DFROBOT Math Keyboard for MicroBit
+ * 
+ * User tries to guess the 0 - 9 sent from a remote MicroBit
+ * 
+ * Press 0 - 9 on the keyboard & DFR ( bottom left ) button to see if guess is correct
+ * 
+ * Eash incorrect guess lights up that button red 
+ * 
+ * Correct guess plays tune / buzzes & lights up button  Green & MicroBit restes ready for the next mystery number to be sent
+ * 
+ * This si a simple framewoork to which many differnt options / gaming schemes could be added...
+ * 
+ * Limit the number of guesses?
+ * 
+ * Keep Score - Correct Guess subtracts 1 from sender / incorrect score subtracts 1 from guesser - 1st to reach zero loses!
+ * 
+ * Maybe do sokme sort of hi/low system to aid the guesser ?
+ */
 keyboard.kbEvent(KeyValue.key5, function () {
     Guess = 5
+})
+keyboard.kbEvent(KeyValue.keydf, function () {
+    Show_Button()
+    basic.pause(100)
+    Compare()
+    basic.pause(1000)
 })
 keyboard.kbEvent(KeyValue.key0, function () {
     Guess = 0
@@ -12,6 +37,9 @@ keyboard.kbEvent(KeyValue.key1, function () {
 })
 keyboard.kbEvent(KeyValue.key6, function () {
     Guess = 6
+})
+keyboard.kbEvent(KeyValue.key8, function () {
+    Guess = 8
 })
 keyboard.kbEvent(KeyValue.key3, function () {
     Guess = 3
@@ -48,17 +76,8 @@ radio.onReceivedNumber(function (receivedNumber) {
 keyboard.kbEvent(KeyValue.key7, function () {
     Guess = 7
 })
-keyboard.kbEvent(KeyValue.key8, function () {
-    Guess = 8
-})
 keyboard.kbEvent(KeyValue.key2, function () {
     Guess = 2
-})
-keyboard.kbEvent(KeyValue.keydf, function () {
-    Show_Button()
-    basic.pause(100)
-    Compare()
-    basic.pause(1000)
 })
 let Answer = 0
 let Guess = 0
